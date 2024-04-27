@@ -6,6 +6,7 @@ npm install --save react-native-gesture-handler
 npm install react-native-safe-area-context
 npm install react-native-screens
 npm install react-native-paper
+.
 
 # Proyecto 1: Segundo entregable - Conexion a la bd en react-native.
 
