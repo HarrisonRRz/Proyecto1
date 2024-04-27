@@ -27,7 +27,7 @@ const Introduction = ({navigation}) => {
       <Button
         style={styles.button}
         mode ="contained"
-        onPress={()=> navigation.navigate('Catalog')}>
+        onPress={()=> navigation.navigate('CatalogBD')}>
         Ver vehiculos
       </Button>
       
