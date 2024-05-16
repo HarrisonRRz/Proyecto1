@@ -17,6 +17,30 @@ const AppointmentForm = ({ navigation }) => {
     navigation.navigate('Confirmation', { name: name, date: date, time: time });
   };
 
+  const handleChangeName = (text) => {
+    // Expresión regular para validar que solo contenga letras y espacios
+    const regex = /^[a-zA-Z\s]*$/;
+    if (regex.test(text) || text === '') {
+      setName(text);
+    }
+  };
+
+  const handleChangeDate = (text) => {
+    // Expresión regular para validar que solo contenga números y símbolos
+    const regex = /^[0-9\/]*$/;
+    if (regex.test(text) || text === '') {
+      setDate(text);
+    }
+  };
+
+  const handleChangeTime = (text) => {
+    // Expresión regular para validar que solo contenga números y símbolos
+    const regex = /^[0-9:]*$/;
+    if (regex.test(text) || text === '') {
+      setTime(text);
+    }
+  };
+
   const showAlert = () => {
     Alert.alert(
       'Alerta',
@@ -44,21 +68,21 @@ const AppointmentForm = ({ navigation }) => {
           style={globalStyles.textInput}
           value={name}
           textColor='black'
-          onChangeText={name => setName(name)} />
+          onChangeText={handleChangeName} />
  
         <Text style={globalStyles.label}>Date:</Text>
         <TextInput
           style={globalStyles.textInput}
           value={date}
           textColor='black'
-          onChangeText={date => setDate(date)} />
+          onChangeText={handleChangeDate} />
  
         <Text style={globalStyles.label}>Time:</Text>
         <TextInput
           style={globalStyles.textInput}
           value={time}
           textColor='black'
-          onChangeText={time => setTime(time)} />
+          onChangeText={handleChangeTime} />
  
         <Button
           style={globalStyles.button}

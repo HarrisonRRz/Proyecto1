@@ -58,7 +58,7 @@ const Introduction = ({navigation}) => {
 const styles = StyleSheet.create({
   contains:{
     flex: 1,
-    backgroundColor: '#0066ff',
+    backgroundColor: '#32354e',
     justifyContent: 'center'
   },
   title:{
