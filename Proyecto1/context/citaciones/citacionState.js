@@ -4,12 +4,12 @@ import CitacionContext from "./citacionContext";
 
 const CitacionState = props => {
     //crea el state inicial
-    const CitacionState = {
+    const initialState = {
         citacion:[]
     }
 
     //useReducer con el dispatch
-    const [ state, dispatch] = useReducer(CitacionReducer, CitacionState)
+    const [ state, dispatch] = useReducer(CitacionReducer, initialState)
 
     return(
         <CitacionContext.Provider

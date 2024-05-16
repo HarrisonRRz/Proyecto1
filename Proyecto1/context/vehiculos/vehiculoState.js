@@ -12,7 +12,7 @@ const VehiculoState = props => {
 
     //useReducer con el dispatch
     const [ state, dispatch] = useReducer(VehiculoReducer, initialState)
-    const seleccionarVehiculo = vehicle =>{
+    const selectVehicle = vehicle =>{
         dispatch ({
             type: SELECCIONAR_VEHICULO,
             payload: vehicle
@@ -24,7 +24,7 @@ const VehiculoState = props => {
             value={{
                 vehiculo: state.vehiculo,
                 vehicle: state.vehicle,
-                seleccionarVehiculo
+                selectVehicle
             }}
         >
             {props.children}

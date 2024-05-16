@@ -9,13 +9,13 @@ import { Text, List, Button } from 'react-native-paper';
 
 const CatalogBD = ()=>{
   //contexto de firebase
-  const {catalog, obtenerVehiculos} = useContext(FirebaseContext)
-  const {seleccionarVehiculo} = useContext(VehiculoContext)
+  const {catalog, bringVehicles} = useContext(FirebaseContext)
+  const {selectVehicle} = useContext(VehiculoContext)
   const navigation = useNavigation()
 
   // Llamar a obtenerVehiculos cuando el componente se monte
   useEffect(() => {
-    obtenerVehiculos();
+    bringVehicles();
   }, []);
 
   const mostrarHeading = (categoria, i) =>{
@@ -55,7 +55,7 @@ const CatalogBD = ()=>{
                 title={<Text style={style.title}>{marca}</Text>}
                 description={<Text style={style.description}>{descripcion}</Text>}
                 onPress={ ()=>{
-                seleccionarVehiculo(vehicle);
+                selectVehicle(vehicle);
                 navigation.navigate("DetailsVehicle")
                 }}
                 style={style.listItem}

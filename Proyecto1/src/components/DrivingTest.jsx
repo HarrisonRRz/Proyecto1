@@ -19,7 +19,7 @@ const DrivingTest = ({ navigation }) => {
   };
 
   const handleChangeName = (text) => {
-    // Expresión regular para validar que solo contenga letras y espacios
+    // validar que solo contenga letras y espacios
     const regex = /^[a-zA-Z\s]*$/;
     if (regex.test(text) || text === '') {
       setName(text);
@@ -27,7 +27,7 @@ const DrivingTest = ({ navigation }) => {
   };
 
   const handleChangeNumber = (text) => {
-    // Expresión regular para validar que solo contenga números y símbolos
+    // validar que solo contenga números y símbolos
     const regex = /^[0-9\/]*$/;
     if (regex.test(text) || text === '') {
       setNumber(text);
@@ -35,7 +35,7 @@ const DrivingTest = ({ navigation }) => {
   };
 
   const handleChangeDate = (text) => {
-    // Expresión regular para validar que solo contenga números y símbolos
+    // validar que solo contenga números y símbolos
     const regex = /^[0-9\/]*$/;
     if (regex.test(text) || text === '') {
       setDate(text);
@@ -43,7 +43,7 @@ const DrivingTest = ({ navigation }) => {
   };
 
   const handleChangeId = (text) => {
-    // Expresión regular para validar que solo contenga números y símbolos
+    // validar que solo contenga números y símbolos
     const regex = /^[0-9\/]*$/;
     if (regex.test(text) || text === '') {
       setId(text);
