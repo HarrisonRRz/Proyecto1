@@ -37,9 +37,24 @@ const globalStyles = {
     },
     contains:{
       flex: 1,
-      backgroundColor: '#aef6ff',
+      backgroundColor: '#b9d1d4',
       justifyContent: 'center'
     },
+    contenedor: {
+      flex: 1
+    },
+    contenido: {
+      marginhorizontal: '2.5%',
+      flex: 1
+    },
+    button: {
+      backgroundColor: '#8ff853'
+    },
+    buttonText: {
+      textTransform: 'uppercase',
+      fontWeight: 'hold',
+      color: '#000'
+    }
   };
   
   export default globalStyles;

@@ -8,6 +8,7 @@ class Firebase{
             app.initializeApp(firebaseConfig);
         }
         this.db = app.firestore();
+        console.log('Realizo la conexion')
     }
 }
 
