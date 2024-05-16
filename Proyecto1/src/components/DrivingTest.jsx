@@ -10,28 +10,60 @@ const DrivingTest = ({ navigation }) => {
   const [number, setNumber] = useState('');
 
   const handleSubmit = () => {
-      console.log('Date:', date);
-      console.log('Name:', name);
-      console.log('Id', id);
-      console.log('Number', number);
+    console.log('Date:', date);
+    console.log('Name:', name);
+    console.log('Id', id);
+    console.log('Number', number);
 
-      navigation.navigate('Confirmation', { date: date, name: name, id: id, number: number });
-    };
+    navigation.navigate('Confirmation', { date: date, name: name, id: id, number: number });
+  };
 
-    const showAlert = () => {
-      Alert.alert(
-        'Alerta',
-        '¿Estás seguro de enviar este formulario?',
+  const handleChangeName = (text) => {
+    // Expresión regular para validar que solo contenga letras y espacios
+    const regex = /^[a-zA-Z\s]*$/;
+    if (regex.test(text) || text === '') {
+      setName(text);
+    }
+  };
+
+  const handleChangeNumber = (text) => {
+    // Expresión regular para validar que solo contenga números y símbolos
+    const regex = /^[0-9\/]*$/;
+    if (regex.test(text) || text === '') {
+      setNumber(text);
+    }
+  };
+
+  const handleChangeDate = (text) => {
+    // Expresión regular para validar que solo contenga números y símbolos
+    const regex = /^[0-9\/]*$/;
+    if (regex.test(text) || text === '') {
+      setDate(text);
+    }
+  };
+
+  const handleChangeId = (text) => {
+    // Expresión regular para validar que solo contenga números y símbolos
+    const regex = /^[0-9\/]*$/;
+    if (regex.test(text) || text === '') {
+      setId(text);
+    }
+  };
+
+  const showAlert = () => {
+    Alert.alert(
+      'Alerta',
+      '¿Estás seguro de enviar este formulario?',
       [
-        {
-        text: 'Cancelar',
-        onPress: () => console.log('Cancelado'),
-        style: 'cancel'
-        },
-        {
-        text: 'Enviar',
-        onPress: handleSubmit
-        }
+      {
+      text: 'Cancelar',
+      onPress: () => console.log('Cancelado'),
+      style: 'cancel'
+      },
+      {
+      text: 'Enviar',
+      onPress: handleSubmit
+      }
       ]
     );
 };
@@ -45,28 +77,28 @@ const DrivingTest = ({ navigation }) => {
           style={globalStyles.textInput2}
           value={date}
           textColor='black'
-          onChangeText={date => setDate(date)} />
+          onChangeText={handleChangeDate} />
 
         <Text style={globalStyles.label}>Name:</Text>
         <TextInput
           style={globalStyles.textInput2}
           value={name}
           textColor='black'
-          onChangeText={name => setName(name)} />
+          onChangeText={handleChangeName} />
 
         <Text style={globalStyles.label}>Id:</Text>
         <TextInput
           style={globalStyles.textInput2}
           value={id}
           textColor='black'
-          onChangeText={id => setId(id)} />
+          onChangeText={handleChangeId} />
 
         <Text style={globalStyles.label}>Number:</Text>
         <TextInput
           style={globalStyles.textInput}
           value={number}
           textColor='black'
-          onChangeText={number => setNumber(number)} />
+          onChangeText={handleChangeNumber} />
 
         <Button
           style={globalStyles.button}
