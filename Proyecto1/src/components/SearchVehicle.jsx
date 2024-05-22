@@ -1,12 +1,35 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import { TextInput, Button} from 'react-native-paper';
+import React, { useState, useEffect, useContext } from 'react';
+import { View, Text, StyleSheet, Alert } from 'react-native';
+import { TextInput, Button } from 'react-native-paper';
+import FirebaseContext from '../../context/firebase/firebaseContext';
+import VehicleContext from '../../context/vehicles/vehicleContext';
+import { useNavigation } from '@react-navigation/native'; // Importa useNavigation
 
-const SearchVehicle= () => {
+const SearchVehicle = () => {
   const [searchModel, setSearchModel] = useState('');
+  const { catalog, bringVehicles } = useContext(FirebaseContext);
+  const { selectVehicle } = useContext(VehicleContext);
+  const navigation = useNavigation(); // Inicializa useNavigation
+
+  useEffect(() => {
+    bringVehicles();
+  }, []);
 
   const handleSearch = () => {
-    console.log('Buscar un vehículo:', searchModel);
+    const foundVehicle = catalog.find(vehicle => vehicle.descripcion === searchModel);
+
+    if (foundVehicle) {
+      console.log('Vehículo encontrado:', foundVehicle);
+      selectVehicle(foundVehicle);
+      navigation.navigate('DetailsVehicle');
+    } else {
+      console.log('Vehículo no encontrado');
+      Alert.alert(
+        'Vehículo no encontrado',
+        'No se encontró ningún vehículo con el modelo ingresado.',
+        [{ text: 'OK', onPress: () => console.log('OK Pressed') }]
+      );
+    }
   };
 
   return (
@@ -16,7 +39,7 @@ const SearchVehicle= () => {
         style={styles.input}
         value={searchModel}
         onChangeText={setSearchModel}
-        placeholder="Introduce el modelo del vehículo"
+        placeholder="Introduce el nombre del vehículo"
       />
       <Button style={styles.button} onPress={handleSearch}>
         <Text style={styles.buttonText}>Buscar</Text>
@@ -25,6 +48,7 @@ const SearchVehicle= () => {
   );
 };
 
+// Estilos
 const styles = StyleSheet.create({
   container: {
     flex: 1,

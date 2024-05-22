@@ -1,14 +1,27 @@
-import React, {useState} from 'react';
-import { View, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { View, StyleSheet, Alert } from 'react-native';
 import { TextInput, Button, Text, PaperProvider } from 'react-native-paper';
+import { useNavigation } from '@react-navigation/native';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  const navigation = useNavigation();
 
   const handleLogin = () => {
     console.log('Email:', email);
     console.log('Password:', password);
+    if (!email || !password) {
+      Alert.alert('Error', 'Por favor ingresa tu usuario y contraseña.');
+      return;
+    }
+
+    if (email === 'Usuario1' && password === 'Usuario123') {
+      navigation.navigate('Introduction');
+    } else {
+      setErrorMessage('Usuario o contraseña incorrectos.');
+    }
   };
 
   return (
@@ -16,7 +29,7 @@ const Login = () => {
       <View style={styles.container}>
         <Text style={styles.title}>Inicio de sesión</Text>
         <TextInput
-          label="Email"
+          label="Usuario"
           value={email}
           onChangeText={setEmail}
           style={styles.input}
@@ -29,7 +42,7 @@ const Login = () => {
           secureTextEntry
           style={styles.input}
         />
-
+        {errorMessage ? <Text style={styles.error}>{errorMessage}</Text> : null}
         <Button mode="contained" onPress={handleLogin} style={styles.button}>
           Iniciar sesión
         </Button>
@@ -59,6 +72,10 @@ const styles = StyleSheet.create({
     marginTop: 20,
     width: '100%',
     backgroundColor: '#ffffff'
+  },
+  error: {
+    color: 'red',
+    marginBottom: 10,
   },
 });
 

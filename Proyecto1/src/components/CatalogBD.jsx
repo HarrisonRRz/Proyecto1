@@ -1,16 +1,16 @@
-import React, {useContext, useEffect, useState, Fragment} from 'react';
+import React, {useContext, useEffect, Fragment} from 'react';
 import { StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import globalStyles from '../styles/globalStyles';
 import FirebaseContext from '../../context/firebase/firebaseContext';
-import VehiculoContext from '../../context/vehiculos/vehiculoContext';
+import VehicleContext from '../../context/vehicles/vehicleContext';
 import { NativeBaseProvider, ScrollView, View, Image } from 'native-base';
-import { Text, List, Button } from 'react-native-paper';
+import { Text, List } from 'react-native-paper';
 
 const CatalogBD = ()=>{
   //contexto de firebase
   const {catalog, bringVehicles} = useContext(FirebaseContext)
-  const {selectVehicle} = useContext(VehiculoContext)
+  const {selectVehicle} = useContext(VehicleContext)
   const navigation = useNavigation()
 
   // Llamar a obtenerVehiculos cuando el componente se monte
@@ -21,8 +21,8 @@ const CatalogBD = ()=>{
   const mostrarHeading = (categoria, i) =>{
 
     if(i>0){
-      const categoriaAnterior = categoria[i-1].categoria;
-      if(categoriaAnterior !== categoria){
+      const previousCategory = categoria[i-1].categoria;
+      if(previousCategory !== categoria){
         return(        
           <View style={style.separador}>
             <Text style={style.separadortexto}>{categoria}</Text>
@@ -112,11 +112,11 @@ const style = StyleSheet.create({
     flex: 1,
   },
   title: {
-    fontWeight: "bold", // Hacer el título en negrita
+    fontWeight: "bold", 
     color: '#00ff95'
   },
   description: {
-    fontWeight: "bold", // Poner el texto en negrita
+    fontWeight: "bold", 
     color: '#000000'
   },
 })

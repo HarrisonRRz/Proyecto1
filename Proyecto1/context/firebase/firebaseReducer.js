@@ -1,8 +1,8 @@
-import { OBTENER_VEHICULOS_EXITO } from "../../types";
+import { GET_SUCCESSFUL_VEHICLES } from "../../types";
 
 export default (state, action) =>{
     switch(action.type){
-        case OBTENER_VEHICULOS_EXITO:
+        case GET_SUCCESSFUL_VEHICLES:
             return{
                 ...state,
                 catalog: action.payload

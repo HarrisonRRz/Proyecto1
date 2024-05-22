@@ -13,13 +13,6 @@ const Introduction = ({navigation}) => {
       <Button
         style={styles.button}
         mode ="contained"
-        onPress={()=> navigation.navigate('Login')}>
-        Iniciar Sesion
-      </Button>
-
-      <Button
-        style={styles.button}
-        mode ="contained"
         onPress={()=> navigation.navigate('AppointmentForm')}>
         Agendar una cita
       </Button>
@@ -37,12 +30,12 @@ const Introduction = ({navigation}) => {
         onPress={()=> navigation.navigate('SearchVehicle')}>
         Buscar Vehiculo
       </Button>
-      
+
       <Button
         style={styles.button}
-        mode = "contained"
-        onPress={()=> navigation.navigate('DrivingTest')}>
-        Solicitar Prueba de Manejo
+        mode='contained'
+        onPress={()=> navigation.navigate('ServiceHistory')}>
+        Historial de servicio
       </Button>
       
       <Button
@@ -51,6 +44,13 @@ const Introduction = ({navigation}) => {
         onPress={()=> navigation.navigate('Contact')}>
         Contacto
       </Button>
+
+      <Button
+        style={styles.button}
+        mode ="contained"
+        onPress={()=> navigation.navigate('Login')}>
+        Cerrar Sesion
+      </Button>
     </View>
   );
 };
@@ -58,7 +58,7 @@ const Introduction = ({navigation}) => {
 const styles = StyleSheet.create({
   contains:{
     flex: 1,
-    backgroundColor: '#32354e',
+    backgroundColor: '#49cef7',
     justifyContent: 'center'
   },
   title:{

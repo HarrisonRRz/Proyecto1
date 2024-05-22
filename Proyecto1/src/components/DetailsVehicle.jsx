@@ -1,17 +1,49 @@
 import React, { useContext } from 'react';
+import { Alert } from 'react-native';
 import { Box } from 'native-base';
-import VehiculoContext from '../../context/vehiculos/vehiculoContext';
+import VehicleContext from '../../context/vehicles/vehicleContext';
 import globalStyles from '../styles/globalStyles';
 import { Button, Card, Text } from 'react-native-paper';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation} from '@react-navigation/native';
 
 const DetailsVehicle = () => {
   // Traer el contexto de los datos del vehículo
-  const { vehicle } = useContext(VehiculoContext);
+  const { vehicle, saveVehicle } = useContext(VehicleContext);
   const { marca, descripcion, modelo, imagen, año, precio, condicion } = vehicle;
 
   // Se hace la navegacion
   const navigation = useNavigation();
+
+  //Confirmar vehiculo
+  const confirmVehicle =()=>{
+    Alert.alert('¿Deseas confirmar este vehiculo?',
+    'Una vez confirmado, se enviaran los datos de este vehiculo para la prueba.',
+    [{
+      text: 'Confirmar',
+      onPress: () =>{
+        const vehicles = {
+          ...vehicle,
+        }
+
+        saveVehicle(vehicles)
+        navigation.navigate('DrivingTest', { description: descripcion })
+      }
+    },
+    {
+      text:'Cancelar',
+      style: 'cancel'
+    }
+  ])
+  }
+
+  // Verificar si vehicle es nulo antes de acceder a sus propiedades
+  if (!vehicle) {
+    return (
+      <Box style={globalStyles.contenedor}>
+        <Text>No se encontró información del vehículo.</Text>
+      </Box>
+    );
+  }
 
   return (
     <Box style={globalStyles.contenedor}>
@@ -26,7 +58,7 @@ const DetailsVehicle = () => {
           <Text style={styles.descripcion}>{descripcion}</Text>
         </Card.Content>
         <Card.Actions>
-          <Button onPress={() => navigation.navigate('DrivingTest')}>
+          <Button onPress={confirmVehicle}>
             <Text>Pedir Prueba de Manejo</Text>
           </Button>
         </Card.Actions>

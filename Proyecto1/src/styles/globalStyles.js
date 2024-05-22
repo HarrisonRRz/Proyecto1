@@ -1,60 +1,80 @@
 const globalStyles = {
-    label: {
-      fontSize: 20, 
-      marginBottom: 10, 
-      marginTop: 15, 
-      fontWeight: 'bold',
-      color: 'black'
-    },
-    label2: {
-      textAlign: 'center',
-      fontSize: 20,
-      fontWeight: 'bold',
-      color: 'black'
-    },
-    textInput: {
-      borderColor: '#000000', 
-      backgroundColor: '#ffffff',
-      borderWidth: 2,  
-      padding: 5, 
-      marginBottom: 25, 
-    },
-    textInput2: {
-      borderColor: '#000000', 
-      backgroundColor: '#ffffff',
-      borderWidth: 2, 
-      borderRadius: 2, 
-      padding: 5,
-      marginBottom: 5, 
-    },
-    button: {
-      backgroundColor: '#94ffb4', 
-      color: '#ffffff', 
-      padding: 10, 
-      borderRadius: 30, 
-      textAlign: 'center',
-      marginTop: 20, 
-    },
-    contains:{
-      flex: 1,
-      backgroundColor: '#b9d1d4',
-      justifyContent: 'center'
-    },
-    contenedor: {
-      flex: 1
-    },
-    contenido: {
-      marginhorizontal: '2.5%',
-      flex: 1
-    },
-    button: {
-      backgroundColor: '#8ff853'
-    },
-    buttonText: {
-      textTransform: 'uppercase',
-      fontWeight: 'hold',
-      color: '#000'
-    }
-  };
-  
-  export default globalStyles;
+  label: {
+    fontSize: 18,
+    marginBottom: 5,
+    marginTop: 5,
+    fontWeight: 'bold',
+    color: 'black',
+  },
+  label2: {
+    textAlign: 'center',
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: 'black',
+    marginBottom: 20,
+  },
+  textInput: {
+    borderColor: '#000',
+    backgroundColor: '#fff',
+    borderWidth: 1,
+    borderRadius: 4,
+    padding: 5,
+    marginBottom: 15,
+    width: '100%',
+  },
+  button: {
+    backgroundColor: '#8ff853',
+    padding: 5,
+    borderRadius: 30,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 20,
+    width: '100%',
+  },
+  buttonText: {
+    textTransform: 'uppercase',
+    fontWeight: 'bold',
+    color: '#000',
+    textAlign: 'center',
+    width: '100%',
+  },
+  contains: {
+    flex: 1,
+    backgroundColor: '#d6d6d6',
+    justifyContent: 'center',
+    padding: 20,
+  },
+  formContainer: {
+    width: '100%',
+    maxWidth: 400,
+    backgroundColor: '#fff',
+    padding: 20,
+    borderRadius: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    elevation: 1,
+  },
+  confirmationContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#f5f5f5',
+    padding: 20,
+  },
+  confirmationText: {
+    fontSize: 18,
+    marginBottom: 10,
+    color: 'black',
+  },
+  titleText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
+    textAlign: 'center',
+    color: 'green',
+  },
+};
+
+export default globalStyles;
