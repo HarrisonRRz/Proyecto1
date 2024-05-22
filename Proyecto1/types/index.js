@@ -1,5 +1,6 @@
 //State de los vehiculos
-export const OBTENER_VEHICULOS_EXITO = 'OBTENER_VEHICULOS_EXITO'
+export const GET_SUCCESSFUL_VEHICLES = 'GET_SUCCESSFUL_VEHICLES'
 
 //State para la prueba de manejo
-export const SELECCIONAR_VEHICULO = 'SELECCIONAR_VEHICULO'
+export const SELECT_VEHICLE = 'SELECT_VEHICLE'
+export const CONFIRM_VEHICLE = 'CONFIRM_VEHICLE'
