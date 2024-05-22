@@ -14,7 +14,7 @@ const FirebaseState = props => {
     //useReducer con el dispatch
     const [ state, dispatch] = useReducer(FirebaseReducer, initialState)
     //Traer los datos
-    const obtenerVehiculos = ()=>{
+    const bringVehicles = ()=>{
         //consulta a la bd
         firebase.db
             .collection('vehiculos')
@@ -41,7 +41,7 @@ const FirebaseState = props => {
             value={{
                 catalog: state.catalog,
                 firebase,
-                obtenerVehiculos
+                bringVehicles
             }}
         >
             {props.children}
